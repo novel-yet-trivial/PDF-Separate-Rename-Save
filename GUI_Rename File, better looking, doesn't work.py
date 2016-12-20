@@ -1,21 +1,23 @@
 try:
     #python2 imports
-    from Tkinter import Tk, Button, Label, N, W, E, S, StringVar, IntVar, ttk, Frame, Entry
-    from Tkinter.filedialog import askopenfile
+    from Tkinter import Tk, Button, Label, N, W, E, S, StringVar, IntVar, Frame, Entry
+    import ttk
+    from tkFileDialog import askopenfilename
     import os, os.path, glob
-    #~ from PyPDF2 import PdfFileWriter, PdfFileReader
+    from PyPDF2 import PdfFileWriter, PdfFileReader
 except ImportError:
     #python3 imports
     from tkinter import Tk, Button, Label, N, W, E, S, StringVar, IntVar, ttk, Frame, Entry
-    from tkinter.filedialog import askopenfile
+    from tkinter.filedialog import askopenfilename
     import os, os.path, glob
     from PyPDF2 import PdfFileWriter, PdfFileReader
 
 #Select file function
 def load_file():
-    filename = askopenfile(initialdir="~")
-    target_file.set(filename)
-    os.chdir(filename)
+    path = askopenfilename(initialdir="~")
+    target_file.set(path)
+    directory, name = os.path.split(path)
+    os.chdir(directory)
     print (os.getcwd())
 
 def rename_file(self, event=None, value=None):
