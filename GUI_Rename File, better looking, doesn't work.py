@@ -3,7 +3,7 @@ try:
     from Tkinter import Tk, Button, Label, N, W, E, S, StringVar, IntVar, ttk, Frame, Entry
     from Tkinter.filedialog import askopenfile
     import os, os.path, glob
-    from PyPDF2 import PdfFileWriter, PdfFileReader
+    #~ from PyPDF2 import PdfFileWriter, PdfFileReader
 except ImportError:
     #python3 imports
     from tkinter import Tk, Button, Label, N, W, E, S, StringVar, IntVar, ttk, Frame, Entry
@@ -36,7 +36,7 @@ def set(self, text=None, run=False):
     if run:
         self.input_change(text)
     self.old_value = text
-    
+
 self = Tk()
 self.minsize(450,100)
 self.title("Renamer")
